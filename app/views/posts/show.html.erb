@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h3>레시피 이름 :</h3>
+  <%= @post.title %>
+</p>
+
+<p>
+  <h3>레시피 소개 :</h3>
+  <%= @post.description %>
+</p>
+
+<p>
+  <h3>레시피 온도 :</h3>
+  <%= @post.temperature %>
+</p>
+
+<p>
+  <h3>레시피 시간 :</h3>
+  <%= @post.time %>
+</p>
+
+<h3>레시피 재료</h3>
+  <ul>
+    <% for @ingredient in @post.ingredients %>
+      <li><%= @ingredient.content %></li>
+    <% end %>
+  </ul>
+<h3>레시피 방법</h3>
+  <ol>
+    <% for @step in @post.steps %>
+      <li><%= @step.direction %></li>
+    <% end %>
+  </ol>
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

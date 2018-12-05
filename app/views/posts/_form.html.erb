@@ -1,0 +1,66 @@
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group-text">
+    <h2>나만의 레시피 공유하기</h2>
+    <div class="form-group-subtext">
+      <h3>여러분의 에어프라이어 레시피를 공유해주세요!</h3>
+      <h3>누군가에게 만찬을 선사할 수도 있습니다.</h3>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :"레시피 이름", class:"form-group-label" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :"레시피 소개", class:"form-group-label" %>
+    <%= form.text_area :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :"레시피 온도", class:"form-group-label" %>
+    <%= form.number_field :temperature, placeholder: "ex) 180 도", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :"레시피 시간", class:"form-group-label" %>
+    <%= form.number_field :time, placeholder: "ex) 20 분", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :"레시피 재료", class:"form-group-label" %><br>
+    <%= form.nested_fields_for :ingredients do |ingredient| %>
+      <%= ingredient.text_field :content, class: "form-control" %>
+      <%= ingredient.remove_nested_fields_link %>
+    <% end %>
+    <div class="form-group-add">
+      <%= form.add_nested_fields_link :ingredients, :"+ 추가하기" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :"레시피 방법", class:"form-group-label" %><br>
+    <%= form.nested_fields_for :steps do |step| %>
+      <%= step.text_field :direction, class: "form-control" %>
+      <%= step.remove_nested_fields_link %>
+    <% end %>
+    <div class="form-group-add">
+      <%= form.add_nested_fields_link :steps, :"+ 추가하기" %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

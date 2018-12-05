@@ -1,0 +1,74 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.form-group-text{
+  text-align: center;
+}
+
+.form-group-text>h2 {
+  font-family: NanumBarunGothicOTF;
+  font-size: 50px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -1.1px;
+  text-align: center;
+  color: #4a4a4a;
+  margin-top: 86.8px;
+  margin-bottom: 51.5px;
+}
+
+.form-group-text h3 {
+  font-family: NanumBarunGothicOTF;
+  font-size: 33px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #4a4a4a;
+}
+
+.form-group-subtext {
+  margin-bottom: 120.6px;
+}
+
+.form-group-add{
+  font-family: NanumBarunGothicOTF;
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 18px;
+}
+.form-group-add>a{
+  color: #b0b0b0;
+  border:1px solid;
+  padding-left: 97px;
+  padding-right: 97px;
+  padding-top: 10px;
+  padding-bottom: 8px;
+}
+
+.form-group-label{
+  font-family: NanumBarunGothicOTF;
+  font-size: 30px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.6px;
+  text-align: center;
+  color: #2f2f2f;
+}
+
+.form-group{
+  width: 50%;
+  margin: 0 auto;
+}
