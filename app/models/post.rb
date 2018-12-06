@@ -8,6 +8,10 @@ class Post < ApplicationRecord
   has_many :post_attachments
   accepts_nested_attributes_for :post_attachments
 
+  belongs_to :category
+
+  belongs_to :user
+
   mount_uploader :image, ImageUploader
   serialize :images, JSON # If you use SQLite, add this line.
 

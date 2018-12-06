@@ -1,34 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Posts</h1>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Title</th>
-      <th scope="col">Description</th>
-      <th scope="col">Temperature</th>
-      <th scope="col">Time</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container">
+  <div class="row">
     <% @posts.each do |post| %>
-      <tr scope="row">
-        <td><%= image_tag post.image.thumb.url if post.image? %></td>
-        <td><%= post.title %></td>
-        <td><%= post.description %></td>
-        <td><%= post.temperature %></td>
-        <td><%= post.time %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="col-md-3">
+      <div class="recipe-box">
+        <%= link_to (image_tag post.image.thumb.url, class: "recipe-index" if post.image?), post %><br>
+        <ul>
+          <li><%= post.title %></li>
+          <li><%= post.temperature %></li>
+          <li><%= post.time %></li>
+          <% if current_user && current_user.admin %>
+          <%= link_to 'Edit', edit_post_path(post) %> |
+          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </ul>
+      </div> <!--/recipe-box -->
+      <br>
+    </div> <!--/col-md-3-->
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
+  </div> <!--/row-->
+</div>

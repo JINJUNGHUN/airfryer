@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <h3>레시피 사진</h3>
   <%= link_to(image_tag(@post.image.thumb.url, alt: 'Image'), @post.image.url, target: '_blank') if @post.image? %>
@@ -14,6 +12,10 @@
 </p>
 
 <p>
+  <%= @post.user.nickname %> 님
+</p>
+
+<p>
   <h3>레시피 이름 :</h3>
   <%= @post.title %>
 </p>
@@ -21,6 +23,11 @@
 <p>
   <h3>레시피 소개 :</h3>
   <%= @post.description %>
+</p>
+
+<p>
+  <h3>음식 종류 :</h3>
+  <%= @post.category.name %>
 </p>
 
 <p>

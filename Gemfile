@@ -4,7 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.4.4'
 
 gem 'rails', '~> 5.2.1'
-gem 'sqlite3'
+gem 'sqlite3', :group => :development
+gem 'pg', '~> 0.21', :group => :production
+gem 'rails_12factor', :group => :production
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -18,6 +20,12 @@ gem 'nested_form_fields'
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 gem 'file_validators'
+gem 'devise'
+gem 'devise-i18n'
+gem 'omniauth'
+gem 'omniauth-naver'
+gem 'figaro'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
