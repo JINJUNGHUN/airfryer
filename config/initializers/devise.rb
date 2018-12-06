@@ -3,13 +3,14 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  config.omniauth :naver, ENV["NAVER_CLIENT_ID"], ENV["NAVER_ClIENT_SECRET"]
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '4f3e022d1ed2e7287be10adb58fdfb3b2d338fa7fdf8545e8ab2a2c8250d31d7a7dabb6bda9d2e37a238291f6fa1e4db4d2d7217cc56bcfefdbf581e78380a1e'
-  
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
