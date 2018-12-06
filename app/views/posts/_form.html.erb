@@ -1,15 +1,6 @@
 <%= form_with(model: post, local: true) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/errors', object: post %>
   <div class="form-group-text">
     <h2>나만의 레시피 공유하기</h2>
     <div class="form-group-subtext">
@@ -23,9 +14,18 @@
     <%= form.file_field :image %>
 
     <% if @post.image? %>
-      <%= image_tag @post.image.url %>
+      <%= link_to(image_tag(@post.image.thumb.url, alt: 'Image'), @post.image.url, target: '_blank')%>
       <%= form.check_box :remove_image %> 이미지 제거하기
-    <% end %> 
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= form.fields_for :post_attachments do |p| %>
+      <%= p.label :image %><br>
+      <%= p.file_field :image, :multiple => true, name: "post_attachments[image][]" %>
+    <% end %>
+
+
   </div>
 
   <div class="form-group">

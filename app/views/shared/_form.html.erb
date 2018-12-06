@@ -1,0 +1,7 @@
+<%= form.label :image %>
+<%= form.file_field :image %><br>
+<%= form.hidden_field :image_cache %>
+
+<% if @post.image? %>
+    <%= image_tag @post.image.thumb.url %>
+<% end %>

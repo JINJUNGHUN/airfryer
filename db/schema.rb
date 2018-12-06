@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_06_042500) do
+ActiveRecord::Schema.define(version: 2018_12_06_064926) do
 
   create_table "ingredients", force: :cascade do |t|
     t.text "content"
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 2018_12_06_042500) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_ingredients_on_post_id"
+  end
+
+  create_table "post_attachments", force: :cascade do |t|
+    t.integer "post_id"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|

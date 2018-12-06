@@ -16,7 +16,7 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr scope="row">
-        <td><%= image_tag post.image.url if post.image? %></td>
+        <td><%= image_tag post.image.thumb.url if post.image? %></td>
         <td><%= post.title %></td>
         <td><%= post.description %></td>
         <td><%= post.temperature %></td>

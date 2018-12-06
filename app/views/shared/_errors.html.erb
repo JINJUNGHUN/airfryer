@@ -1,0 +1,11 @@
+<% if @post.errors.any? %>
+
+  <div class="error_explanation">
+    <ul>
+      <h4>에러가 발견 되었습니다.</h4>
+      <% @post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  </div>
+<% end %>
