@@ -15,6 +15,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'nested_form_fields'
+gem 'carrierwave', '~> 1.0'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

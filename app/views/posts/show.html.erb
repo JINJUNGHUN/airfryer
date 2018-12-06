@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<% if @post.image? %>
+  <%= image_tag @post.image.url %>
+<% end %>
+
 <p>
   <h3>레시피 이름 :</h3>
   <%= @post.title %>
