@@ -21,7 +21,7 @@
 
   <div class="form-group">
     <%= form.fields_for :post_attachments do |p| %>
-      <%= p.label :image %><br>
+      <%= p.label :"추가 레시피 사진" %><br>
       <%= p.file_field :image, :multiple => true, name: "post_attachments[image][]" %>
     <% end %>
 

@@ -1,11 +1,23 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
   # GET /posts
   # GET /posts.json
+
+  def like_toggle
+    like = Lkie.find_by(user_id: current_user.id, post_id: params[:post_id])
+    if like.nil? # 좋아요가 없다면?
+      Like.create(user_id: current_user.id, post_id: params[:post_id])
+    else # 좋아요가 있다면?
+      like.destroy
+    end
+    redirect_to posts_url
+  end
+
   def index
     @posts = Post.all
-    @posts = Post.order('created_at DESC')
+    @posts = Post.order('created_at DESC').page params[:page]
   end
 
   # GET /posts/1
@@ -76,6 +88,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:category_id, :image_cache, :remove_image, :image, :title, :description, :temperature, :time, ingredients_attributes:[:id, :content, :_destroy], steps_attributes:[:id, :direction, :_destroy], post_attachments_attributes: [:id, :post_id, :image])
+      params.require(:post).permit(:likes, :category_id, :image_cache, :remove_image, :image, :title, :description, :temperature, :time, ingredients_attributes:[:id, :content, :_destroy], steps_attributes:[:id, :direction, :_destroy], post_attachments_attributes: [:id, :post_id, :image])
     end
 end

@@ -25,6 +25,9 @@ gem 'devise-i18n'
 gem 'omniauth'
 gem 'omniauth-naver'
 gem 'figaro'
+gem 'cancancan'
+gem 'rolify'
+gem 'kaminari'
 
 
 group :development, :test do
@@ -36,6 +39,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rails_db'
 end
 
 group :test do

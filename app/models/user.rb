@@ -1,4 +1,11 @@
 class User < ApplicationRecord
+  after_create :assign_default_role
+
+  def assign_default_role
+    add_role(:editor) #회원가입 시 default 값으로 editor 권한을 부여
+  end
+
+  rolify
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
 
@@ -7,6 +14,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
 
   has_many :identities, dependent: :destroy
+
+  has_many :likes, dependent: :destroy
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
     # user와 identity가 nil이 아니라면 받는다

@@ -7,4 +7,9 @@ Rails.application.routes.draw do
   root to: 'posts#index'
 
   get 'pages/about'
+  get 'pages/mypage'
+
+  post "likes/:post_id/create" => "likes#create"
+  post "likes/:post_id/destroy" => "likes#destroy"
+
 end

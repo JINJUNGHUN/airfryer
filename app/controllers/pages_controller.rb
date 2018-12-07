@@ -2,6 +2,9 @@ class PagesController < ApplicationController
   def about
   end
 
+  def mypage
+  end
+
   # def privacy
   # end
 end

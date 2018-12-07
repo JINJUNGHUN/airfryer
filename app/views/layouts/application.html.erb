@@ -15,7 +15,8 @@
 
         <% if current_user %>
         <%= current_user.nickname %> 님 반갑습니다. <br>
-        <%= link_to '로그아웃', destroy_user_session_path, method: :delete %>
+        <%= link_to '로그아웃', destroy_user_session_path, method: :delete %> /
+        <%= link_to '마이페이지', pages_mypage_path %>
         <% else %>
         <%= link_to '로그인', new_user_session_path %> /
         <%= link_to '회원가입', new_user_registration_path %>
