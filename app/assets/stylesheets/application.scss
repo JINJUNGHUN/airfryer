@@ -1,5 +1,28 @@
-@import "bootstrap-sprockets";
 @import "bootstrap";
+
+.navbar>a>img {
+  margin-top: 80px;
+  margin-left: 90px;
+}
+
+.navbar>ul {
+  text-align: right;
+}
+
+.nav {
+}
+
+.nav>a{
+  font-family: NanumBarunGothicOTF;
+  font-size: 27px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #4a4a4a;
+  float: right;
+}
 
 .nav_user_info {
   opacity: 0.7;
@@ -28,6 +51,10 @@
 .recipe_button>a {
   color: #ffffff;
   background-color: #151515;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .recipe-box {

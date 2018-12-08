@@ -8,10 +8,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <%= link_to(image_tag("main_logo.png"), root_path) %><br>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav navbar-right">
+  <nav class="navbar navbar-light bg-light">
+    <%= link_to(image_tag("main_logo.png"), root_path) %>
+      <div class="nav navbar-nav ml-auto">
 
         <% if current_user %>
         <%= current_user.nickname %> 님 반갑습니다. <br>
@@ -20,14 +19,12 @@
         <% else %>
         <%= link_to '로그인', new_user_session_path %> /
         <%= link_to '회원가입', new_user_registration_path %>
-
         <% end %>
-
         <div class="recipe_button">
-        <%= link_to '레시피 공유하기', new_post_path %>
+          <%= link_to '레시피 공유하기', new_post_path %>
         </div>
-      </ul>
-    </div>
+      </div>
+
   </nav>
 
   <body>
